@@ -26,7 +26,8 @@ app.use("/todopost", (req, res, next) => {
         const token = req.headers.authorization
         if (token) {
             const decoded = jwt.verify(token, "Auth")
-            req.user = decoded.data,
+            req.user = decoded.data.split("@")[0],
+            console.log(req.user)
                 next()
         }
         else {
