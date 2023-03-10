@@ -9,7 +9,7 @@ register.use(bodyparser.json())
 register.post("/register", async (req, res) => {
     try {
         const existing = await Users.findOne({email:req.body.email})
-        console.log(req.body)
+        // console.log(req.body)
         if (existing) {
             res.status(403).json({
                 status: "Failed",
